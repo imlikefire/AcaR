@@ -1,4 +1,4 @@
-# AcaR - (Academic Recommender)
+# AcaR - ( Academic Recommender )
 
 # Cerinta :
 
