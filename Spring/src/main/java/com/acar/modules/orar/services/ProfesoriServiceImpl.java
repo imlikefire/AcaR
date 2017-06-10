@@ -30,6 +30,14 @@ public class ProfesoriServiceImpl implements ProfesoriService {
         return this.repository.findOne(id);
     }
 
+    public long getIdByName(String nume){
+        List<Profesori> profs=this.repository.findAll();
+        for(Profesori prof : profs)
+            if(prof.getNume().equals(nume))
+                return prof.getId_prof();
+        return 0;
+    }
+
     @Override
     public void delete(Long id) {
         this.repository.delete(id);

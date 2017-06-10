@@ -4,8 +4,8 @@ package com.acar.modules.orar.DTOs;
 public class OrarDTO {
     private String zi;
     private String grupa;
-    private int id_disciplina;
-    private int id_prof;
+    private long id_disciplina;
+    private long id_prof;
     private String ora_inceput;
     private String ora_sfarsit;
     private int sala;
@@ -14,7 +14,7 @@ public class OrarDTO {
     public OrarDTO(){
 
     }
-    public OrarDTO(String zi, String ora_inceput, String ora_sfarsit,  int id_disciplina, int id_prof,int sala, String tip, String grupa) {
+    public OrarDTO(String zi, String ora_inceput, String ora_sfarsit,  long id_disciplina, long id_prof,int sala, String tip, String grupa) {
         this.zi = zi;
         this.grupa = grupa;
         this.id_disciplina = id_disciplina;
@@ -42,19 +42,19 @@ public class OrarDTO {
         this.grupa = grupa;
     }
 
-    public int getId_disciplina() {
+    public long getId_disciplina() {
         return id_disciplina;
     }
 
-    public void setId_disciplina(int id_disciplina) {
+    public void setId_disciplina(long id_disciplina) {
         this.id_disciplina = id_disciplina;
     }
 
-    public int getId_prof() {
+    public long getId_prof() {
         return id_prof;
     }
 
-    public void setId_prof(int id_prof) {
+    public void setId_prof(long id_prof) {
         this.id_prof = id_prof;
     }
 

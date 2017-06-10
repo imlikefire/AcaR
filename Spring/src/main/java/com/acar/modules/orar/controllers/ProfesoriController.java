@@ -81,4 +81,5 @@ public class ProfesoriController {
         }
         return new ResponseEntity<List<Profesori>>(bun, HttpStatus.OK);
     }
+
 }

@@ -83,5 +83,6 @@ public class DisciplineController {
         }
         return new ResponseEntity<List<Discipline>>(bun, HttpStatus.OK);
     }
+
 }
 

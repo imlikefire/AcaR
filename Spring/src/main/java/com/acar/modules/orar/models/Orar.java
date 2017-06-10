@@ -30,11 +30,11 @@ public class Orar implements Serializable {
 
     @NotNull
     @Column(name = "id_disciplina")
-    private int idDisciplina;
+    private long idDisciplina;
 
     @NotNull
     @Column(name = "id_prof")
-    private int idProf;
+    private long idProf;
 
     @NotNull
     @Column(name = "sala")
@@ -78,19 +78,19 @@ public class Orar implements Serializable {
         this.oraSfarsit = oraSfarsit;
     }
 
-    public int getIdDisciplina() {
+    public long getIdDisciplina() {
         return idDisciplina;
     }
 
-    public void setIdDisciplina(int idDisciplina) {
+    public void setIdDisciplina(long idDisciplina) {
         this.idDisciplina = idDisciplina;
     }
 
-    public int getIdProf() {
+    public long getIdProf() {
         return idProf;
     }
 
-    public void setIdProf(int idProf) {
+    public void setIdProf(long idProf) {
         this.idProf = idProf;
     }
 

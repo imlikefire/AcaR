@@ -35,6 +35,13 @@ public class DisciplineServiceImpl implements DisciplineService {
         this.repository.delete(id);
     }
 
+    public long getIdByName(String nume){
+        List<Discipline> discipline=this.repository.findAll();
+        for(Discipline disciplina : discipline)
+            if(disciplina.getTitlu_disciplina().equals(nume))
+                return disciplina.getId_disciplina();
+        return 0;
+    }
 
 }
 
