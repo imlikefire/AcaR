@@ -32,7 +32,7 @@ import java.util.List;
 public class ScheduleController {
 
     @Autowired
-    private OrarService service;
+    private OrarServiceImpl service;
     @Autowired
     private ProfesoriServiceImpl profService;
     @Autowired
@@ -172,6 +172,37 @@ public class ScheduleController {
                 return new ResponseEntity<List<Schedule>>(schedule, HttpStatus.OK);
 
         }
+    }
+
+    @RequestMapping(value="/recommend/{disciplina}",method = RequestMethod.GET)
+    public ResponseEntity<List<Schedule>> recommend (@PathVariable("disciplina") String disciplina){
+        List<Orar> orar=this.service.getAll();
+        List<Schedule> schedule=new ArrayList<>();
+        long idDisciplina=this.disciplineService.getIdByName(disciplina);
+        List<Profesori> profs=new ArrayList<>();
+        List<Profesori> goodProfs=new ArrayList<>();
+        for(Orar ora:orar)
+            if(ora.getIdDisciplina()==idDisciplina)
+            {
+                Profesori prof = profService.getById(ora.getIdProf());
+                if(!profs.contains(prof))
+                    profs.add(prof);
+            }
+        if(profs.isEmpty())
+            return new ResponseEntity<List<Schedule>>(HttpStatus.NO_CONTENT);
+
+        long notaMaxima=0;
+        for(Profesori prof:profs)
+            if(prof.getNota()>notaMaxima)
+                notaMaxima=prof.getNota();
+
+        for(Profesori prof:profs)
+            if(prof.getNota()==notaMaxima)
+                for(Orar ora :this.service.getByProfId(prof.getId_prof()))
+                    schedule.add(getDisplaySchedule(ora));
+
+        return new ResponseEntity<List<Schedule>>(schedule, HttpStatus.OK);
+
     }
 
 }

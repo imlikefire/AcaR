@@ -11,9 +11,7 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by Vladd on 10.05.2017.
- */
+
 public class ConfirmEmailServiceTest {
 
     private static ConfirmEmailServiceImpl mockedConfirmEmail;

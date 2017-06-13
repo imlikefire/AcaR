@@ -26,6 +26,10 @@ public class Profesori implements Serializable{
     @Column(name = "grad_didactic")
     private String grad_didactic;
 
+    @NotNull
+    @Column(name="nota")
+    private long nota;
+
     public long getId_prof() {
         return id_prof;
     }
@@ -58,5 +62,11 @@ public class Profesori implements Serializable{
         this.grad_didactic = grad_didactic;
     }
 
+    public long getNota() {
+        return nota;
+    }
 
+    public void setNota(long nota) {
+        this.nota = nota;
+    }
 }

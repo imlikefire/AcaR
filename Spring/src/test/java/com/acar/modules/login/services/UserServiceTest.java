@@ -15,9 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by Vladd on 10.05.2017.
- */
+
 public class UserServiceTest {
 
     private static UserServiceImpl mockedUserService;

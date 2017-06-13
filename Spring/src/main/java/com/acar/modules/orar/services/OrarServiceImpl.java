@@ -5,6 +5,7 @@ import com.acar.modules.orar.repositories.OrarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,5 +35,13 @@ public class OrarServiceImpl implements OrarService {
         this.repository.delete(id);
     }
 
+    public List<Orar> getByProfId(Long id){
+        List<Orar>orar=this.repository.findAll();
+        List<Orar>goodOrar= new ArrayList<>();
+        for(Orar ora:orar)
+            if(ora.getIdProf()==id)
+                goodOrar.add(ora);
+        return goodOrar;
+    }
 
 }

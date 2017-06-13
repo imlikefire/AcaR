@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component;
             prof.setNume(object.getNume());
             prof.setPrenume(object.getPrenume());
             prof.setGrad_didactic(object.getGrad_didactic());
+            prof.setNota(object.getNota());
             return prof;
         }
 
         @Override
         public ProfesoriDTO toDTO(Profesori object) {
-            return new ProfesoriDTO(object.getNume(),object.getPrenume(),object.getGrad_didactic());
+            return new ProfesoriDTO(object.getNume(),object.getPrenume(),object.getGrad_didactic(),object.getNota());
         }
     }
 

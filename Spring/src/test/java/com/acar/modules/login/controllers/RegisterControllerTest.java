@@ -28,9 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Created by Vladd on 09.05.2017.
- */
+
 public class RegisterControllerTest {
     @InjectMocks
     private RegisterController controller;

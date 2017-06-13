@@ -6,15 +6,17 @@ public class ProfesoriDTO {
     private String nume;
     private String prenume;
     private String grad_didactic;
+    private long nota;
 
     public ProfesoriDTO(){
 
     }
 
-    public ProfesoriDTO(String nume, String prenume, String grad_didactic) {
+    public ProfesoriDTO(String nume, String prenume, String grad_didactic, long nota) {
         this.nume = nume;
         this.prenume = prenume;
         this.grad_didactic = grad_didactic;
+        this.nota=nota;
     }
 
     public String getNume() {
@@ -41,5 +43,11 @@ public class ProfesoriDTO {
         this.grad_didactic = grad_didactic;
     }
 
+    public long getNota() {
+        return nota;
+    }
 
+    public void setNota(long nota) {
+        this.nota = nota;
+    }
 }
