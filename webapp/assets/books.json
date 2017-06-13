@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Introduction to Algorithms",
+    "authors": "Charles E. Leiserson, Clifford Stein, Ronald Rivest, and Thomas H. Cormen"
+  },
+  {
+    "id": "2",
+    "name": "The Art of Computer Programming",
+    "authors": "Donald Knuth"
+  },
+  {
+    "id": "3",
+    "name": "The C Programming Language",
+    "authors": "Brian Kernighan and Dennis"
+  },
+  {
+    "id": "4",
+    "name": "Concrete Mathematics",
+    "authors": "Donald Knuth, Oren Patashnik, and Ronald Graham"
+  }
+]
