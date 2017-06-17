@@ -19,16 +19,20 @@ public class Profesori implements Serializable{
     @Column(name = "nume")
     private String nume;
 
-    @NotNull
-    @Column(name = "prenume")
-    private String prenume;
-
     @Column(name = "grad_didactic")
     private String grad_didactic;
 
     @NotNull
     @Column(name="nota")
-    private long nota;
+    private double nota;
+
+    @NotNull
+    @Column(name="count")
+    private long count;
+
+    @NotNull
+    @Column(name="procentaj")
+    private long procentaj;
 
     public long getId_prof() {
         return id_prof;
@@ -46,13 +50,6 @@ public class Profesori implements Serializable{
         this.nume = nume;
     }
 
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
-    }
 
     public String getGrad_didactic() {
         return grad_didactic;
@@ -62,11 +59,23 @@ public class Profesori implements Serializable{
         this.grad_didactic = grad_didactic;
     }
 
-    public long getNota() {
-        return nota;
+    public double getNota() {return nota;}
+
+    public void setNota(double nota) {this.nota = nota;}
+
+    public long getCount() {
+        return count;
     }
 
-    public void setNota(long nota) {
-        this.nota = nota;
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public long getProcentaj() {
+        return procentaj;
+    }
+
+    public void setProcentaj(long procentaj) {
+        this.procentaj = procentaj;
     }
 }

@@ -4,6 +4,7 @@ package com.acar.modules.orar.controllers;
 import com.acar.modules.orar.DTOs.ProfesoriDTO;
 import com.acar.modules.orar.models.Profesori;
 import com.acar.modules.orar.services.ProfesoriService;
+import com.acar.modules.orar.services.ProfesoriServiceImpl;
 import com.acar.transformers.ProfesoriTransformer;
 import com.acar.transformers.Transformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +22,9 @@ import java.util.List;
 public class ProfesoriController {
 
     @Autowired
-    private ProfesoriService service;
+    private ProfesoriServiceImpl service;
     private Transformer<Profesori, ProfesoriDTO> transformer = new ProfesoriTransformer();
+    private int count=1;
 
     @RequestMapping(value="/getAll",method = RequestMethod.GET)
     public ResponseEntity<List<Profesori>> get() {
@@ -35,7 +39,10 @@ public class ProfesoriController {
     @RequestMapping(value="/createEntry",method = RequestMethod.POST)
     public ResponseEntity<Profesori> addEntry(@RequestBody ProfesoriDTO prof) {
 
-        Profesori savedProf = this.service.save(transformer.toModel(prof));
+        Profesori savedProf = transformer.toModel(prof);
+        savedProf.setCount(1);
+        savedProf=this.service.save(savedProf);
+
         return new ResponseEntity<Profesori>(savedProf, HttpStatus.CREATED);
     }
 
@@ -56,14 +63,12 @@ public class ProfesoriController {
     @RequestMapping(value="/updateById/{updateId}", method=RequestMethod.PUT)
     public ResponseEntity<Profesori> updateById(@PathVariable("updateId") Long updateId, @RequestBody ProfesoriDTO update) {
         Profesori prof = this.service.getById(updateId);
-        Profesori orarUntouched=prof;
         if (prof == null) {
             return new ResponseEntity<Profesori>(HttpStatus.NO_CONTENT);
         }
         Profesori profUpdate=transformer.toModel(update);
 
         prof.setNume(profUpdate.getNume());
-        prof.setPrenume(profUpdate.getPrenume());
         prof.setGrad_didactic(profUpdate.getGrad_didactic());
         Profesori profSaved=this.service.save(prof);
         return new ResponseEntity<Profesori>(profSaved, HttpStatus.OK);
@@ -82,4 +87,23 @@ public class ProfesoriController {
         return new ResponseEntity<List<Profesori>>(bun, HttpStatus.OK);
     }
 
+    @RequestMapping(value="/addNota/{nume}/{nota}",method = RequestMethod.PUT)
+    public ResponseEntity<Profesori> addEntry(@PathVariable("nume") String nume, @PathVariable("nota") int nota) {
+
+        Profesori savedProf=this.service.getById(this.service.getIdByName(nume));
+        if (savedProf == null) {
+            return new ResponseEntity<Profesori>(HttpStatus.NO_CONTENT);
+        }
+        if(nota<1||nota>10)
+            return new ResponseEntity<Profesori>(HttpStatus.BAD_REQUEST);
+        else {
+            savedProf.setNota(BigDecimal.valueOf(((savedProf.getNota() * savedProf.getCount()) + nota) / (savedProf.getCount() + 1))
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue());
+            savedProf.setCount(savedProf.getCount()+1);
+            savedProf=this.service.save(savedProf);
+            return new ResponseEntity<Profesori>(savedProf,HttpStatus.OK);
+            }
+
+
+    }
 }

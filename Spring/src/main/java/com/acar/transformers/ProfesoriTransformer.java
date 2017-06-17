@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
         public Profesori toModel(ProfesoriDTO object) {
             Profesori prof=new Profesori();
             prof.setNume(object.getNume());
-            prof.setPrenume(object.getPrenume());
             prof.setGrad_didactic(object.getGrad_didactic());
             prof.setNota(object.getNota());
+            prof.setProcentaj(object.getProcentaj());
             return prof;
         }
 
         @Override
         public ProfesoriDTO toDTO(Profesori object) {
-            return new ProfesoriDTO(object.getNume(),object.getPrenume(),object.getGrad_didactic(),object.getNota());
+            return new ProfesoriDTO(object.getNume(),object.getGrad_didactic(),object.getNota(),object.getProcentaj());
         }
     }
 

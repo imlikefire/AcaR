@@ -38,7 +38,7 @@ public class DisciplineServiceImpl implements DisciplineService {
     public long getIdByName(String nume){
         List<Discipline> discipline=this.repository.findAll();
         for(Discipline disciplina : discipline)
-            if(disciplina.getTitlu_disciplina().equals(nume))
+            if(disciplina.getTitlu_disciplina().toLowerCase().equals(nume.toLowerCase()))
                 return disciplina.getId_disciplina();
         return 0;
     }

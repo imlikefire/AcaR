@@ -19,23 +19,12 @@ public class ProfesoriServiceImpl implements ProfesoriService {
         return this.repository.save(entity);
     }
 
-
     @Override
-    public List<Profesori> getAll() {
-        return this.repository.findAll();
-    }
+    public List<Profesori> getAll() {return this.repository.findAll();}
 
     @Override
     public Profesori getById(Long id) {
         return this.repository.findOne(id);
-    }
-
-    public long getIdByName(String nume){
-        List<Profesori> profs=this.repository.findAll();
-        for(Profesori prof : profs)
-            if(prof.getNume().equals(nume))
-                return prof.getId_prof();
-        return 0;
     }
 
     @Override
@@ -43,6 +32,14 @@ public class ProfesoriServiceImpl implements ProfesoriService {
         this.repository.delete(id);
     }
 
+
+    public long getIdByName(String nume){
+        List<Profesori> profs=this.repository.findAll();
+        for(Profesori prof : profs)
+            if(prof.getNume().toLowerCase().equals(nume.toLowerCase()))
+                return prof.getId_prof();
+        return 0;
+    }
 
 }
 

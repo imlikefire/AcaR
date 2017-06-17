@@ -4,19 +4,19 @@ package com.acar.modules.orar.DTOs;
 public class ProfesoriDTO {
 
     private String nume;
-    private String prenume;
     private String grad_didactic;
-    private long nota;
+    private double nota;
+    private long procentaj;
 
     public ProfesoriDTO(){
 
     }
 
-    public ProfesoriDTO(String nume, String prenume, String grad_didactic, long nota) {
+    public ProfesoriDTO(String nume, String grad_didactic, double nota, long procentaj) {
         this.nume = nume;
-        this.prenume = prenume;
         this.grad_didactic = grad_didactic;
         this.nota=nota;
+        this.procentaj=procentaj;
     }
 
     public String getNume() {
@@ -27,14 +27,6 @@ public class ProfesoriDTO {
         this.nume = nume;
     }
 
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
-    }
-
     public String getGrad_didactic() {
         return grad_didactic;
     }
@@ -43,11 +35,17 @@ public class ProfesoriDTO {
         this.grad_didactic = grad_didactic;
     }
 
-    public long getNota() {
+    public double getNota() {
         return nota;
     }
 
-    public void setNota(long nota) {
-        this.nota = nota;
+    public void setNota(double nota) {this.nota = nota;}
+
+    public long getProcentaj() {
+        return procentaj;
+    }
+
+    public void setProcentaj(long procentaj) {
+        this.procentaj = procentaj;
     }
 }
