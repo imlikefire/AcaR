@@ -2,9 +2,9 @@ package com.acar.modules.orar.controllers;
 
 
 import com.acar.modules.orar.DTOs.ProfesoriDTO;
+import com.acar.modules.orar.models.Orar;
 import com.acar.modules.orar.models.Profesori;
-import com.acar.modules.orar.services.ProfesoriService;
-import com.acar.modules.orar.services.ProfesoriServiceImpl;
+import com.acar.modules.orar.services.*;
 import com.acar.transformers.ProfesoriTransformer;
 import com.acar.transformers.Transformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,10 @@ public class ProfesoriController {
 
     @Autowired
     private ProfesoriServiceImpl service;
+    @Autowired
+    private OrarServiceImpl orarService;
+    @Autowired
+    private DisciplineServiceImpl disciplineService;
     private Transformer<Profesori, ProfesoriDTO> transformer = new ProfesoriTransformer();
     private int count=1;
 
@@ -104,6 +108,61 @@ public class ProfesoriController {
             return new ResponseEntity<Profesori>(savedProf,HttpStatus.OK);
             }
 
+    }
 
+    @RequestMapping(value="/getBestByNota/{disciplina}",method = RequestMethod.GET)
+    public ResponseEntity<List<Profesori>> getBestByNota(@PathVariable("disciplina")  String disciplina) {
+        long idDisciplina=this.disciplineService.getIdByName(disciplina);
+        List<Orar> orar=this.orarService.getAll();
+        List<Profesori> profs=new ArrayList<>();
+        List<Profesori> bestProfs=new ArrayList<>();
+        for(Orar ora:orar)
+            if(ora.getIdDisciplina()==idDisciplina)
+            {
+                Profesori prof = this.service.getById(ora.getIdProf());
+                if(!profs.contains(prof))
+                    profs.add(prof);
+            }
+        if(profs.isEmpty())
+            return new ResponseEntity<List<Profesori>>(HttpStatus.NO_CONTENT);
+
+        double notaMaxima=0;
+        for(Profesori prof:profs)
+            if(prof.getNota()>notaMaxima)
+                notaMaxima=prof.getNota();
+
+        for(Profesori prof:profs)
+            if(prof.getNota()==notaMaxima)
+                bestProfs.add(prof);
+
+        return new ResponseEntity<List<Profesori>>(bestProfs, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/getBestByProcentaj/{disciplina}",method = RequestMethod.GET)
+    public ResponseEntity<List<Profesori>> getBestByProcentaj(@PathVariable("disciplina")  String disciplina) {
+        long idDisciplina=this.disciplineService.getIdByName(disciplina);
+        List<Orar> orar=this.orarService.getAll();
+        List<Profesori> profs=new ArrayList<>();
+        List<Profesori> bestProfs=new ArrayList<>();
+        for(Orar ora:orar)
+            if(ora.getIdDisciplina()==idDisciplina)
+            {
+                Profesori prof = this.service.getById(ora.getIdProf());
+                if(!profs.contains(prof))
+                    profs.add(prof);
+            }
+        if(profs.isEmpty())
+            return new ResponseEntity<List<Profesori>>(HttpStatus.NO_CONTENT);
+
+        long procentajMaxim=0;
+        for(Profesori prof:profs)
+            if(prof.getProcentaj()>procentajMaxim)
+                procentajMaxim=prof.getProcentaj();
+
+        for(Profesori prof:profs)
+            if(prof.getProcentaj()==procentajMaxim)
+                bestProfs.add(prof);
+
+        return new ResponseEntity<List<Profesori>>(bestProfs, HttpStatus.OK);
     }
 }
