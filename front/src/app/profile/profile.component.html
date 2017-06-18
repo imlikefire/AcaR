@@ -1,0 +1,14 @@
+<div class="list-group">
+  <button (click)="setClicked()" class="list-group-item">
+    <span class="glyphicon glyphicon-user"></span> Your Profile
+  </button>
+</div>
+<div class="list-group" *ngIf="clicked">
+    <button class="list-group-item">First name : {{firstName}}</button>
+    <button class="list-group-item">Last name : {{lastName}}</button>
+    <button class="list-group-item">Email : {{email}}</button>
+    <button class="list-group-item">Status : {{userRole}}</button>
+    <br><br>
+    <button class="list-group-item custom-butt"  (click)="logout()"><span class="glyphicon glyphicon-off"></span> Log out</button>
+</div>
+

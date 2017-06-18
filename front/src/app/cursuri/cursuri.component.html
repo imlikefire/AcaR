@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"> Name : </span>
+      <input type="text" class="form-control" placeholder="Filter by name" name="filter" [(ngModel)]="filterbyname">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"> Year : </span>
+      <input type="text" class="form-control" placeholder="Filter by year" name="filter" [(ngModel)]="filterbyan">
+    </div>
+</div>
+<br><br>
+<ul class="scrollable-menu text-center">
+  <div *ngFor="let c of cursuri">
+  <li *ngIf="c.titlu_disciplina.toLowerCase().includes(filterbyname.toLowerCase()) && c.an.toString().includes(filterbyan)" class="list-group-item">
+    <a (onclick)="clicked()">{{c.titlu_disciplina}}</a> <br>
+    AN : {{c.an}} SEM : {{c.semestru}}
+  </li>
+  </div>
+</ul>
+<p>{{click}}</p>
+<div *ngIf="click">
+  <nvd3 [options]="options" [data]="data"></nvd3>
+</div>

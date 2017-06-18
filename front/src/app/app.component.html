@@ -1,0 +1,42 @@
+<div class="container">
+  <div *ngIf="loggedIn; then user else nouser"></div>
+  <ng-template #nouser><h1>Welcome to <strong>AcaR</strong> !</h1></ng-template>
+  <ng-template #user><h1>Welcome, <strong>{{firstName}} {{lastName}}</strong> !</h1></ng-template>
+  <hr>
+</div>
+<div class="container">
+  <div class="col-sm-4">
+    <div *ngIf="loggedIn">
+      <app-profile [firstName]="firstName" [lastName]="lastName" [userRole]="userRole" [email]="email" (logEvent)="setLoginStatus($event)"></app-profile>
+    </div>
+  </div>
+
+  <div class="col-sm-4" align="center">
+
+    <div *ngIf="loggedIn; then logged else nologged"></div>
+
+    <ng-template #nologged>
+      <button class="btn btn-success" (click)="loadLogin()">Log In</button>
+      <button class="btn btn-success" (click)="loadRegister()">Register</button>
+
+      <br><br><br>
+      <div *ngIf="loginLoaded; then loginTempl else registerTempl"></div>
+        <ng-template #loginTempl><app-login (loginEvent)="setLoginStatus($event)" (userEvent)="setID($event)" (passEvent)="setPassword($event)"></app-login></ng-template>
+        <ng-template #registerTempl>
+          <div *ngIf="registered; then forValidate else forRegister"></div>
+            <ng-template #forValidate><app-validate></app-validate></ng-template>
+            <ng-template #forRegister><app-register (registerEvent)="setRegistered($event)"></app-register></ng-template>
+        </ng-template>
+    </ng-template>
+
+    <ng-template #logged>
+      <app-menu [userID]="userID" (firstNameEvent)="setFirstName($event)" (lastNameEvent)="setLastName($event)" (userRoleEvent)="setUserRole($event)" (emailEvent)="setUserEmail($event)"></app-menu>
+    </ng-template>
+
+  </div>
+  <div class="col-sm-4">
+    <div *ngIf="loggedIn">
+      <app-settings [password]="password" [email]="email" (resetEvent)="setLoginStatus($event)"></app-settings>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Filter by group !</span>
+    <input type="text" class="form-control" placeholder="Search by group..." [(ngModel)]="filterByGroup">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Filter by class !</span>
+    <input type="text" class="form-control" placeholder="Search by class..." [(ngModel)]="filterByClass">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Filter by name !</span>
+    <input type="text" class="form-control" placeholder="Search by course name..." [(ngModel)]="filterByName">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Filter by prof !</span>
+    <input type="text" class="form-control" placeholder="Search by professor name..." [(ngModel)]="filterByProf">
+  </div>
+</div>
+<br>
+<table class="table table-bordered table-hover table-sm custom-table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Day</th>
+    <th>Hours</th>
+    <th>Name</th>
+    <th>Prof</th>
+    <th>Class</th>
+    <th>Group</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let s of schedule; let i = index; let even = even; let odd = odd">
+    <tr *ngIf="s.grupa.toLowerCase().includes(filterByGroup.toLowerCase()) && s.sala.toString().includes(filterByClass) && s.disciplina.toLowerCase().includes(filterByName.toLowerCase()) && s.prof.toLowerCase().includes(filterByProf.toLowerCase())" [ngClass]="{ odd: odd, even: even }">
+    <th scope="row">{{i+1}}</th>
+    <td>{{s.zi}}</td>
+    <td>{{s.oraInceput}} - {{s.oraSfarsit}}</td>
+    <td>{{s.disciplina}}</td>
+    <td>{{s.prof}}</td>
+    <td>C{{s.sala}}</td>
+    <td>{{s.grupa}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
