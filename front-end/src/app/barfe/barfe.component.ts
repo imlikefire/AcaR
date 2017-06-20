@@ -11,7 +11,7 @@ export class BarfeComponent implements OnInit {
   private barfaLink: string = "http://localhost:5991/v1/orar/barfe/getAllByProfesor/";
   @Input() profName: string;
   public barfe: Object;
-  public barfa: string;
+  public barfa: String;
 
   constructor( private newService: FromDBService ) { }
 
