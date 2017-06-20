@@ -1,0 +1,25 @@
+<div class="list-group">
+  <a routerLink="/cursuri" class="list-group-item">
+    <span class="glyphicon glyphicon-education"></span> Courses <span class="badge">{{cursuri?.length}}</span>
+  </a>
+  <a routerLink="/schedule" class="list-group-item">
+    <span class="glyphicon glyphicon-time"></span> Schedule <span class="badge">1</span>
+  </a>
+  <a routerLink="/books" class="list-group-item">
+    <span class="glyphicon glyphicon-book"></span> Books <span class="badge">9</span>
+  </a>
+  <a routerLink="/online-docs" class="list-group-item">
+    <span class="glyphicon glyphicon-globe"></span> Online Documentation <span class="badge">{{od?.length}}</span>
+  </a>
+  <a routerLink="/software" class="list-group-item">
+  <span class="glyphicon glyphicon-shopping-cart"></span> Software Aplications <span class="badge">{{soft?.length}}</span>
+  </a>
+  <a routerLink="/projects" class="list-group-item">
+    <span class="glyphicon glyphicon-briefcase"></span> Projects <span class="badge">{{proj?.length}}</span>
+  </a>
+  <a routerLink="/profs" class="list-group-item">
+    <span class="glyphicon glyphicon-user"></span> Professors <span class="badge">{{profs?.length}}</span>
+  </a>
+</div>
+
+<router-outlet></router-outlet>

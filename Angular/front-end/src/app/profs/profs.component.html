@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon"> Name : </span>
+    <input type="text" class="form-control" placeholder="Filter by name" name="filter" [(ngModel)]="filterbyname">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon"> Rating > </span>
+    <input type="text" class="form-control" placeholder="Filter by rating" name="filter" [(ngModel)]="filterbyrating">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon"> Promotion % > </span>
+    <input type="text" class="form-control" placeholder="Filter by prom percentage" name="filter" [(ngModel)]="filterbyprom">
+  </div>
+</div>
+<br><br>
+<ul class="scrollable-menu text-center">
+  <div *ngFor="let p of profs">
+    <li *ngIf="p.nume.toLowerCase().includes(filterbyname.toLowerCase()) && p.nota > filterbyrating && p.procentaj > filterbyprom" class="list-group-item">
+      <a (click)="addNota(p.nume)"><strong>{{p.nume}}</strong></a> <br>
+      Rating: {{p.nota}} Promotion percentage: {{p.procentaj}}
+    </li>
+  </div>
+</ul>
+<br><br>
+<div *ngIf="clicked">
+  <label> Grade {{profName}} : </label>
+  <input type="text" [(ngModel)]="grade">
+  <button (click)="gradeTeacher(profName,grade)">Grade</button>
+  <br><br>
+  <app-barfe [profName]="profName"></app-barfe>
+</div>
+<br><br>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"> Name : </span>
+      <input type="text" class="form-control" placeholder="Filter by name" name="filter" [(ngModel)]="filterbyname">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"> Year : </span>
+      <input type="text" class="form-control" placeholder="Filter by year" name="filter" [(ngModel)]="filterbyan">
+    </div>
+</div>
+<br><br>
+<ul class="scrollable-menu text-center">
+  <div *ngFor="let c of cursuri">
+  <li *ngIf="c.titlu_disciplina.toLowerCase().includes(filterbyname.toLowerCase()) && c.an.toString().includes(filterbyan)" class="list-group-item">
+    <a (click)="clicked(c.titlu_disciplina)">{{c.titlu_disciplina}}</a> <br>
+    AN : {{c.an}} SEM : {{c.semestru}}
+  </li>
+  </div>
+</ul>
+<div *ngIf="click">
+  <p>Grades average :</p>
+  <nvd3 [options]="options" [data]="data"></nvd3>
+  <br><br>
+  <div *ngIf="best?.length>0; then exista else nuexista"></div>
+  <ng-template #exista><h4> We found {{best?.length}} teacher/s with the best grade ! </h4>
+    <div *ngFor="let b of best">
+      <p>{{b.grad_didactic}} <a (click)="getOrar(b.nume)">{{b.nume}}</a></p>
+      <p> Grade: {{b.nota}} Prom. percentage: {{b.procentaj}}</p>
+    </div>
+  </ng-template>
+  <ng-template #nuexista><h4>We didn't find any best teachers !</h4></ng-template>
+  <div *ngIf="bestProc?.length>0; then existaa"></div>
+  <ng-template #existaa><h4> We found {{bestProc?.length}} teacher/s with the best promotion percentage ! </h4>
+    <div *ngFor="let bb of bestProc">
+      <p>{{bb.grad_didactic}} <a (click)="getOrar(bb.nume)">{{bb.nume}}</a></p>
+      <p> Grade: {{bb.nota}} Prom. percentage: {{bb.procentaj}}</p>
+    </div>
+  </ng-template>
+
+  <div *ngIf="profClicked && bestProc">
+    <app-orar-prof [profName]="profName"></app-orar-prof>
+  </div>
+
+  <div class="list-group">
+    <ng-container *ngFor="let r of resources">
+      <a href="{{r.link}}" target="_blank" class="list-group-item">
+        {{r.nume}} <br> Difficulty: {{r.dificultate}} </a>
+    </ng-container>
+  </div>
+
+
+</div>

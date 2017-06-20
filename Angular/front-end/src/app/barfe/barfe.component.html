@@ -1,0 +1,10 @@
+<div class="list-group">
+  <ng-container *ngFor="let b of barfe">
+    <p class="list-group-item">
+      {{b.barfa}} </p>
+  </ng-container>
+</div>
+<label> Gossip {{profName}} : </label>
+<input type="text" [(ngModel)]="barfa">
+<br>
+<button (click)="addBarfa(profName,barfa)">Gossip</button>

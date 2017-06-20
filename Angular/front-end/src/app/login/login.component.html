@@ -1,0 +1,23 @@
+<img src="./assets/user.png" alt="login-icon" width="200" height="200">
+
+<form class="login-form" #loginForm="ngForm">
+
+  <label>Email adress :</label>
+  <input type="text" name="email" [(ngModel)]="email" required autofocus>
+  <br><br><br>
+
+  <label>Password :</label>
+  <input type="password" name="password" [(ngModel)]="password" required>
+
+  <br><br>
+
+  <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" (click)="login()"> Log In </button>
+
+  <br><br>
+
+  <button (click)="checkLogged()" class="btn btn-block btn-social btn-facebook">
+    <span class="fa fa-facebook"></span> Log in with Facebook
+  </button>
+  <br><br><br>
+
+</form>

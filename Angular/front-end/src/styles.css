@@ -1,0 +1,6 @@
+body {
+  background-repeat: repeat-y;
+  background-position: center;
+  background-image: url("assets/main-back.jpg");
+  background-attachment: fixed;
+}
