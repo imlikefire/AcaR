@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AcaR - Academic Recommender</title>
+  <link rel="stylesheet" href="schlarly.css">
+  <link rel="stylesheet" href="http://scholarly.vernacular.io/scholarly.css">
+  <script src="node_modules/prismjs/prism.js" defer></script>
+</head>
+<body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+<header>
+  <p class="title">AcaR - Academic Recommender</p>
+</header>
+<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+  <h1>AcaR</h1>
+  <section>
+    <ol>
+      <li property="schema:author" typeof="sa:ContributorRole">
+        <a property="schema:author" href="https://github.com/imlikefire" typeof="schema:Person">
+          <span property="schema:givenName">Robert</span>
+          <span property="schema:familyName">Ungureanu</span>
+        </a>
+        <a href="#scienceai" property="sa:roleAffiliation" resource="http://science.ai/"></a>
+        <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+        </sup>
+      </li>
+      <li property="schema:contributor" typeof="sa:ContributorRole">
+        <a property="schema:contributor" href="https://github.com/eduardclatinici" typeof="schema:Person">
+          <span property="schema:givenName">Paul-Eduard</span>
+          <span property="schema:familyName">Clatinici</span>
+        </a>
+        <a href="#scienceai" property="sa:roleAffiliation" resource="http://science.ai/"></a>
+      </li>
+    </ol>
+    <ol>
+      <a href="https://www.info.uaic.ro/bin/Main/">
+        <span property="schema:name">Facultatea de Informatica Iasi , Universitatea Alexandru Ioan Cuza</span>
+      </a>
+    </ol>
+  </section>
+
+  <section typeof="sa:Abstract" id="abstract">
+    <h2>Cuprins</h2>
+    <p>1.Descriere</p>
+    <p>2.Tehnologii utilizate</p>
+    <p>3.Diagrama Arhitecturala</p>
+    <p>4.Diagrama tabelelor</p>
+    <p>5.Impartirea task-urilor</p>
+  </section>
+  <section typeof="sa:MaterialsAndMethods" id="motivation">
+    <h2>Descriere</h2>
+    <aside typeof="schema:WPSideBar">
+    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  SINGLE PAGE WEB APPLICATION</p>
+    <p>	&nbsp&nbsp&nbsp&nbsp !!!Functionalitatile aplicatiei nu pot fi accesate de un utilizator nelogat. Aplicatia pune la dispozitie 2 modalitati de logare:</p>
+    <p>1)Facebook</p>
+    <p>2)Daca nu dispuneti de un cont de facebook puteti sa va inregistrati cu o adresa de mail pe care veti primi ulterior un mesaj de confirmare(un cod pe care v-a trebui sa il introduceti pentru a termina inregistrarea).Ulterior se poate reseta parola.</p>
+      <p> &nbsp&nbsp&nbsp&nbsp Aplicatia are rolul de a oferi utilizatorului informatii despre disciplinele si profesorii din cadrul Facultatii de informatica Iasi. Pentru a detalia voi descrie in continuare cateva scenarii de utilizare: (presupunem ca utilizatorul este logat)</p>
+
+      <p>-se poate vedea orarul in functie de: profesor, disciplina, sala, grupa</p>
+      <p>-se pot vizualiza resursele generale si cele care sunt caracteristice unor discipline(!o resursa poate apartine mai multor discipline)</p>
+      <p>-se pot vizualiza toti profesorii-> putem adauga note+barfe fiecarui profesor+vizualizarea lor</p>
+      <p>-se pot vizualiza toate disciplinele-> daca selectam o disciplina, aplicatia ne va recomanda cel mai bun profesor dupa media notelor obtinute pe site sau dupa cel mai mic procentaj de restantieri(!daca 2 profesori au aceeasi nota sau procentaj, vor fi afisati amandoi)->daca selectam unul din acesti profesor putem vizualiza orarul in functie de profesorul respectiv si disciplina aleasa mai sus</p>
+
+    </aside>
+
+    <section typeof="sa:MaterialsAndMethods" id="motivation">
+      <section typeof="sa:MaterialsAndMethods" id="motivation">
+        <h2>Tehnologii folosite</h2>
+        <aside typeof="schema:WPSideBar">
+        	<p>Front-end: Angular+Bootstrap</p>
+        	<p>Back-end: Spring(Java), Hibernate</p>
+          	<p>DB : MySQL </p>
+        </aside>
+        <section typeof="sa:MaterialsAndMethods" id="motivation">
+
+          <section typeof="sa:MaterialsAndMethods" id="motivation">
+            <section typeof="sa:MaterialsAndMethods" id="motivation">
+              <h2>Diagrama</h2>
+              <aside typeof="schema:WPSideBar">
+                <h3>Diagrama Arhitecturala</h3>
+                <img src="arhitectura.jpg">
+              </aside>
+                <section typeof="sa:MaterialsAndMethods" id="motivation">
+                  <section typeof="sa:MaterialsAndMethods" id="motivation">
+                    <h2>Diagrama tabelelor din baza de date</h2>
+                    <aside typeof="schema:WPSideBar">
+                      <img src="diagramaTabele.png">
+                    </aside>
+                    <section typeof="sa:MaterialsAndMethods" id="motivation">
+                      <section typeof="sa:MaterialsAndMethods" id="motivation">
+
+                                    <section typeof="sa:MaterialsAndMethods" id="motivation">
+
+                <h2>Impartirea task-urilor</h2>
+                <aside typeof="schema:WPSideBar">
+                  <figure typeof="schema:Table">
+                    <table>
+                      <thead>
+                      <tr>
+                        <th>Nume</th>
+                        <th>Task</th>
+                      </tr>
+                      </thead>
+                      <tr>
+                        <th>Clatinici Paul-Eduard</th>
+                        <th>Back-end(chief)+MySQL+Front-end</th>
+                      </tr>
+                      <tr>
+                        <th>Ungureanu Robert</th>
+                        <th>Front-end(chief)+Back-end</th>
+                      </tr>
+                    </table>
+                  </figure>
+                </aside>
+</body>
+</html>

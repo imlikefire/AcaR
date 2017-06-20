@@ -39,6 +39,7 @@ public class UserController {
         return new ResponseEntity<List<GetUserDTO>>(usersDTO, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @RequestMapping(value="{id}",method = RequestMethod.GET)
     public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
         User userExist = service.findById(id);

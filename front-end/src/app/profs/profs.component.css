@@ -1,0 +1,22 @@
+li {
+  background-color: snow;
+  font-weight: bold;
+  border-bottom: 3px solid white;
+}
+
+li:hover {
+  background-color: #e7e7e7;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
+  width: 100%;
+}
+label {
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Adobe Devanagari", sans-serif;
+  color: snow;
+}

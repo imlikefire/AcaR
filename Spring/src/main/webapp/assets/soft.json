@@ -1,0 +1,51 @@
+[
+  {
+    "nume" : "Haskell Platform",
+    "link" : "http://bit.ly/1UzlQ7T"
+  },
+
+  {
+    "nume" : "Visual Studio",
+    "link" : "http://bit.ly/1FzxYjY"
+  },
+
+  {
+    "nume" : "NetBeans IDE",
+    "link" : "http://bit.ly/1daNBmX"
+  },
+
+  {
+    "nume" : "IntelliJ IDEA",
+    "link" : "http://bit.ly/1RJGMcZ"
+  },
+
+  {
+    "nume" : "JetBrains Webstorm",
+    "link" : "http://bit.ly/2rk6QXS"
+  },
+
+  {
+    "nume" : "JetBrains DataGrip",
+    "link" : "http://bit.ly/2rc2Apa"
+  },
+
+  {
+    "nume" : "Eclipse IDE",
+    "link" : "http://bit.ly/2teyXE0"
+  },
+
+  {
+    "nume" : "ArgoUML",
+    "link" : "http://bit.ly/2svaAW7Oracle EE 11g"
+  },
+
+  {
+    "nume" : "Oracle EE 11g",
+    "link" : "http://bit.ly/Qmkzpt"
+  },
+
+  {
+    "nume" : "MySql Community Server",
+    "link" : "http://bit.ly/1O1guj1"
+  }
+]

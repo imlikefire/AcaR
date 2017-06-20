@@ -1,0 +1,15 @@
+.odd {
+  background-color: snow;
+}
+.even {
+  background-color: #e7e7e7;
+}
+.custom-table {
+  text-align: center;
+  padding-left: -20px;
+}
+th {
+  text-align: center;
+  background-color: #c4e3f3;
+  color: #122b40;
+}

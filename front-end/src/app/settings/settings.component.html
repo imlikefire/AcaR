@@ -1,0 +1,22 @@
+<div class="list-group">
+  <button (click)="setClicked()" class="list-group-item">
+    <span class="glyphicon glyphicon-cog"></span> Settings
+  </button>
+</div>
+<div class="list-group" *ngIf="clicked">
+  <button (click)="showResetInput()" class="list-group-item">Reset password</button>
+  <div *ngIf="show">
+    <form class="changepass-form" #changePassForm="ngForm">
+
+      <br>
+      <label>Old password :</label>
+      <input type="password" name="oldpass" [(ngModel)]="oldpass" required autofocus>
+      <br><br>
+
+      <button type="submit" class="btn btn-success" [disabled]="!changePassForm.form.valid" (click)="resetPassword()"> Reset </button>
+      <br><br>
+      <p>{{message}}</p>
+      <br><br>
+    </form>
+  </div>
+</div>

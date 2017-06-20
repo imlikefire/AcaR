@@ -1,0 +1,22 @@
+<form class="register-form" #registerForm="ngForm">
+
+  <label>First name :</label>
+  <input type="text" name="firstName" [(ngModel)]="user.firstName" required autofocus>
+  <br><br>
+
+  <label>Last name :</label>
+  <input type="text" name="lastName" [(ngModel)]="user.lastName" required>
+  <br><br>
+
+  <label>E-mail adress :</label>
+  <input type="text" name="email" [(ngModel)]="user.email" required>
+  <br><br>
+
+  <label>Password :</label>
+  <input type="password" name="password" [(ngModel)]="user.password" required>
+  <br><br>
+
+  <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid" (click)="register()"> Register </button>
+  <br><br>
+
+</form>

@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * Created by eduar on 6/17/2017.
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/resurse")
 public class ResurseController {

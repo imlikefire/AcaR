@@ -1,0 +1,18 @@
+<h3> Register succeeded ! Check your email. </h3>
+
+<form class="validate-form" #validateForm="ngForm">
+
+  <label>Email :</label>
+  <input type="text" name="email" [(ngModel)]="email" required autofocus>
+  <br><br>
+
+  <label>Code :</label>
+  <input type="text" name="code" [(ngModel)]="code" required>
+  <br><br>
+
+  <button type="submit" class="btn btn-success" [disabled]="!validateForm.form.valid" (click)="validate()"> Validate </button>
+  <br><br>
+
+  <h5>{{message}}</h5>
+
+</form>

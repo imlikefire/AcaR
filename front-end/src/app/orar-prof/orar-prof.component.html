@@ -1,0 +1,26 @@
+<table class="table table-bordered table-hover table-sm custom-table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Day</th>
+    <th>Hours</th>
+    <th>Name</th>
+    <th>Prof</th>
+    <th>Class</th>
+    <th>Group</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let s of schedule; let i = index; let even = even; let odd = odd">
+    <tr *ngIf="s.prof.toLowerCase().includes(profName.toLowerCase())" [ngClass]="{ odd: odd, even: even }">
+      <th scope="row">{{i+1}}</th>
+      <td>{{s.zi}}</td>
+      <td>{{s.oraInceput}} - {{s.oraSfarsit}}</td>
+      <td>{{s.disciplina}}</td>
+      <td>{{s.prof}}</td>
+      <td>C{{s.sala}}</td>
+      <td>{{s.grupa}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

@@ -16,6 +16,8 @@ import java.util.List;
 /**
  * Created by eduar on 6/20/2017.
  */
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/orar/barfe")
 public class BarfaController {
@@ -34,7 +36,7 @@ public class BarfaController {
         return new ResponseEntity<List<Barfa>>(barfe, HttpStatus.OK);
     }
 
-
+    @CrossOrigin(origins = "http://localhost:3100")
     @RequestMapping(value="/createEntry",method = RequestMethod.POST)
     public ResponseEntity<Barfa> addEntry(@RequestBody BarfaDTO object) {
 

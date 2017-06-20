@@ -1,0 +1,49 @@
+[
+  {
+    "autor" : "Sabin Buraga",
+    "nume" : "Tehnologii XML",
+    "link" : "http://bit.ly/2tepZ9Z"
+  },
+
+{
+"autor" : "Sabin Buraga",
+"nume" : "Proiectarea siturilor Web",
+"link" : "http://bit.ly/2slwpYx"
+},
+
+{
+"autor" : "S. Buraga, L. Alboaie",
+"nume" : "Servicii Web",
+"link" : "http://bit.ly/2teJwXE"
+},
+
+{
+"autor" : "Cristian Frasinaru",
+"nume" : "Curs practic de Java",
+"link" : "http://bit.ly/2rjEtsP"
+},
+
+{
+"autor" : "Grahan Hutton",
+"nume" : "Programming in Haskell",
+"link" : "http://bit.ly/2rbIhrY"
+},
+
+{
+"autor" : "Juan Solie",
+"nume" : "C++ Language Tutorial",
+"link" : "http://bit.ly/1kyBMdz"
+},
+
+{
+"autor" : "Jianer Chen",
+"nume" : "Computational Geometry",
+"link" : "http://bit.ly/2roBFWf"
+},
+
+{
+"autor" : "Allen B. Downey",
+"nume" : "Think Java",
+"link" : "http://bit.ly/2rTCKsz"
+}
+]

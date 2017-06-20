@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 
+@CrossOrigin
 @RestController
 public class LoginController {
 
@@ -26,7 +27,7 @@ public class LoginController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-     @CrossOrigin(origins = "http://localhost:3100")
+     @CrossOrigin
     @RequestMapping(value={"/login/password"},method = RequestMethod.POST)
     public ResponseEntity<String> sendPassword(@RequestParam String email) {
         User userExists = userService.findByEmail(email);
@@ -46,7 +47,7 @@ public class LoginController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:3100")
+    @CrossOrigin
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public ResponseEntity<String> login(String email, String password){
         System.out.println(email);

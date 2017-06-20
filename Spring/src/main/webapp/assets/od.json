@@ -1,0 +1,31 @@
+[
+  {
+    "nume" : "The Java Tutorial",
+    "link" : "http://bit.ly/2hw4X0E"
+  },
+
+  {
+    "nume" : "STL Reference",
+    "link" : "http://bit.ly/2rTLhff"
+  },
+
+  {
+    "nume" : "Principii UNIX si Internet",
+    "link" : "http://bit.ly/2sVwfUE"
+  },
+
+  {
+    "nume" : "Socket-uri BSD",
+    "link" : "http://bit.ly/2rbZ8uI"
+  },
+
+  {
+    "nume" : "Class Diagram",
+    "link" : "http://bit.ly/2rTHWNa"
+  },
+
+  {
+    "nume" : "Spring Tutorial",
+    "link" : "http://bit.ly/2rk7e8w"
+  }
+]

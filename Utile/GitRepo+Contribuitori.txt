@@ -1,0 +1,9 @@
+repo:https://github.com/imlikefire/AcaR
+
+Fiecare commit are un mesaj scurt (ce s-a modificat/adaugat la fiecare commit) si contine una sau mai multe functionalitati(uneori s-a urcat pe git dupa implementarea a mai multor functionalitati deoarece au fost situatii speciale->lipsa internetului etc.).
+
+
+Contribuitori:
+
+Clatinici Paul-Eduard 
+		Ungureanu Robert(imlikefire)

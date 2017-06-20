@@ -1,0 +1,6 @@
+<div class="list-group">
+  <ng-container *ngFor="let b of books">
+  <a *ngIf="b.tip=='Book'" href="{{b.link}}" target="_blank" class="list-group-item">
+    {{b.nume}} <br> Difficulty: {{b.dificultate}} </a>
+  </ng-container>
+</div>

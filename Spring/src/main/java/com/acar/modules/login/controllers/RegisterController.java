@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 
+@CrossOrigin
 @RestController
 public class RegisterController {
 
